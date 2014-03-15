@@ -125,7 +125,7 @@ map ,w :w<CR>
 set ignorecase
 
 " search the string cursor points to. Very Usefull.
-map ,s vaw:xccmd findSelectedTextInWorkspace<CR>
+map ,s viw:xccmd findSelectedTextInWorkspace<CR>
     "map ,sc :xccmd commitCommand<CR>
 
 " open Documentation and API Reference    
