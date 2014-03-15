@@ -2,7 +2,8 @@
 " XVim config.
 " Author: 邓锦龙(BronteDeng)
 " Note: This file contains base keymap and xvim cmd keymap.
-"  Unfrequently used keymap is indent right.
+"       Unfrequently used keymap is indent right.
+"       If lost document focus, use menu Navigate -> movie to focus to editor (cmd + j)
 " Data: Sat Mar 15 10:05:14 CST 2014
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " not supported
@@ -84,6 +85,7 @@ map ,b :xccmd goBackInHistoryByCommand<CR>
     "map ,pi :xcmenucmd Fix Previous Issue<CR>
     
 " switch between .h/.m
+" You can use vim cmd |gd| and |ctrl+i/o| to navigate between files.
 map ,n :xccmd jumpToNextCounterpart<CR>  
     " place holder is Like <#...#>,  jump to front of placeholder then use Key Tab.  
     "map ,np :xccmd selectNextPlaceholder<CR> 
