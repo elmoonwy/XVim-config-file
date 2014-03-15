@@ -2,16 +2,15 @@
 " XVim config.
 " Author: 邓锦龙(BronteDeng)
 " Note: This file contains base keymap and xvim cmd keymap.
-"  |menucmd| will assign first responder. |xccmd| will not. 
 "  Unfrequently used keymap is indent right.
-" Data: Wed Sep 25 16:29:57 CST 2013
+" Data: Sat Mar 15 10:05:14 CST 2014
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " not supported
 "let mapleader = ","
 """""""""""""""""""""""""""""""""""""""""
-" assistant editor and jump between Frame
+" assistant editor and jump between Frame 
 """""""""""""""""""""""""""""""""""""""""
-" show assistant editor(then add is enable)
+" show assistant editor (then add is enable)
 " show standard editor to close assistant editor
 map ,sa :xccmd changeToGeniusEditor<CR>
 " add new assistant editor
@@ -20,8 +19,8 @@ map ,sa :xccmd changeToGeniusEditor<CR>
     "map ,da :xccmd removeAssistantEditor<CR>
     
 " move between windows
-map <C-j> <C-w>j<CR> 
-map <C-k> <C-w>k<CR>
+    map <C-j> <C-w>j<CR> 
+    map <C-k> <C-w>k<CR>
 map <C-h> <C-w>h<CR>
 map <C-l> <C-w>l<CR>
 
@@ -42,19 +41,20 @@ map ,ti :tabprevious<CR>
 "map ,to :xccmd selectNextTab<CR>
 map ,to :tabnext<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" View note: standard editor shortkey is convenient
-""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" View 
+" Note: standard editor shortkey is convenient
+"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Code Snippet Library
-map ,cs :menucmd Title:Show Code Snippet Library<CR>
+map ,cs :xcmenucmd Show Code Snippet Library<CR>
 " File Template Library
-    map ,ft :menucmd Title:Show File Template Library<CR>
+    map ,ft :xcmenucmd Show File Template Library<CR>
 " Media Library
-    map ,ml :menucmd Title:Show Media Library<CR>
+    map ,ml :xcmenucmd Show Media Library<CR>
 " (Quick) help Inspector
-    map ,hi :menucmd Title:Show Quick Help Inspector<CR>
+    map ,hi :xcmenucmd Show Quick Help Inspector<CR>
 " File inspector
-    map ,fi :menucmd Title:Show File Inspector<CR>
+    map ,fi :xcmenucmd Show File Inspector<CR>
 
 " toggle navigator, debug area, utilities, ToolBar  
 " l-left, b-bottom, r-right, t-top or toolbar
@@ -67,26 +67,27 @@ map ,tt :xccmd toggleToolbarShown<CR>
 " Navigate
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " dc-debug console
-map ,dc :menucmd Title:Activate Console<CR>
-    "map , :menucmd Title:Reveal in Project Navigator<CR>
-    "map , :menucmd Title:Reveal in Symbol Navigator<CR>
-    "map , :menucmd Title:Reveal in Debug Navigator<CR>
+map ,dc :xcmenucmd Activate Console<CR>
+    "map , :xcmenucmd Reveal in Project Navigator<CR>
+    "map , :xcmenucmd Reveal in Symbol Navigator<CR>
+    "map , :xcmenucmd Reveal in Debug Navigator<CR>
     
 " open current file in selected editor
-    "map ,oi :menucmd Title:Open in…<CR>
+    "map ,oi :xcmenucmd Open in…<CR>
 " ctrl+i/o maybe better
 map ,f :xccmd goForwardInHistoryByCommand<CR>
 map ,b :xccmd goBackInHistoryByCommand<CR>
-    "map ,jd :menucmd Title:Jump to Definition<CR> " vim cmd:gd
-    map ,jn :menucmd Title:Jump to Next Issue<CR>
-    "map ,ni :menucmd Title:Fix Next Issue<CR>
-    map ,jp :menucmd Title:Jump to Previous Issue<CR>
-    "map ,pi :menucmd Title:Fix Previous Issue<CR>
+    "map ,jd :xcmenucmd Jump to Definition<CR> " vim cmd:gd
+    map ,jn :xcmenucmd Jump to Next Issue<CR>
+    "map ,ni :xcmenucmd Fix Next Issue<CR>
+    map ,jp :xcmenucmd Jump to Previous Issue<CR>
+    "map ,pi :xcmenucmd Fix Previous Issue<CR>
     
 " switch between .h/.m
 map ,n :xccmd jumpToNextCounterpart<CR>  
-    "map ,np :xccmd selectNextPlaceholder<CR> " use tab
-    map ,pp :xccmd selectPreviousPlaceholder<CR>
+    " place holder is Like <#...#>,  jump to front of placeholder then use Key Tab.  
+    "map ,np :xccmd selectNextPlaceholder<CR> 
+    "map ,pp :xccmd selectPreviousPlaceholder<CR>
 
 " reveal file or symbol
 map ,pr :xccmd revealInProjectNavigator<CR>
@@ -108,27 +109,28 @@ nmap ,zu :xccmd unfold<CR>
         map ,fc :xccmd foldAllComments<CR>
         map ,uc :xccmd unfoldAllComments<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" Product 
+" Project 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 map ,r  :run<CR>
-map ,bp  :menucmd Title:Build<CR>
-map ,cp  :menucmd Title:Clean<CR>
+map ,bp  :xcmenucmd Build<CR>
+map ,cp  :xcmenucmd Clean<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Miscellaneous (杂项)
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "quick save and quit
 map ,w :w<CR>
-"map ,q :q<CR>  quit program
 set ignorecase
 
+" search the string cursor points to. Very Usefull.
 map ,s vaw:xccmd findSelectedTextInWorkspace<CR>
-map ,sc :xccmd commitCommand<CR>
+    "map ,sc :xccmd commitCommand<CR>
 
-"Documentation and API Reference    
-"map ,doc :xccmd showDeveloperDocumentation<CR>
-"show quick help for current word
+" open Documentation and API Reference    
+    "map ,doc :xccmd showDeveloperDocumentation<CR>
+" show quick help for current word
 map ,h :xhelp<CR>
+" search document for text cursor points to.
 map ,sh :xccmd searchDocumentationForSelectedText<CR>
 
 " Filter file (view menus achieve the goal too)
@@ -136,6 +138,7 @@ map ,fn :menucmd Title:Filter in Navigator<CR>
 map ,fl :menucmd Title:Filter in Library<CR>
 
 " Open Quickly
+" Note: slower then short key |cmd+shift+o|
 map ,o  :xccmd openQuickly<CR>
 " Close Window
 map ,cw  :xccmd performClose<CR>
@@ -148,3 +151,4 @@ map ,ss  :xccmd createSnapshot<CR>
 map ,rs  :xccmd restoreSnapshot<CR>
 " cmd+L, go to line
 map ,l  :xccmd openQuicklyScoped<CR>
+
